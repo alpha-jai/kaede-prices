@@ -2,23 +2,17 @@ package domain
 
 import "time"
 
-type TransactionType string
-
-const (
-	Earned   TransactionType = "EARNED"
-	Redeemed TransactionType = "REDEEMED"
-)
-
-type Transaction struct {
-	ID        string          `json:"id"`
-	UserID    string          `json:"user_id"`
-	Amount    int             `json:"amount"`
-	Type      TransactionType `json:"type"`
-	CreatedAt time.Time       `json:"created_at"`
+type UserReward struct {
+	ID        uint      `json:"id"`
+	UserID    uint      `json:"user_id"`
+	Points    int       `json:"points"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
-type UserReward struct {
-	UserID            string        `json:"user_id"`
-	Points            int           `json:"points"`
-	TransactionHistory []Transaction `json:"transaction_history"`
+type Transaction struct {
+	ID        uint      `json:"id"`
+	UserID    uint      `json:"user_id"`
+	Action    string    `json:"action"` // e.g., "report_price"
+	Points    int       `json:"points"`
+	CreatedAt time.Time `json:"created_at"`
 }

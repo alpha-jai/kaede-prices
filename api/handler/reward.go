@@ -1,25 +1,24 @@
 package handler
 
 import (
-	"encoding/json"
 	"net/http"
-	"kaede-prices/api/payload"
-	"kaede-prices/repo"
+
+	"github.com/gin-gonic/gin"
+	"github.com/koyo/kaede-prices/service"
 )
 
 type RewardHandler struct {
-	repo repo.RewardRepository
+	svc *service.RewardService
 }
 
-func NewRewardHandler(r repo.RewardRepository) *RewardHandler {
-	return &RewardHandler{repo: r}
+func NewRewardHandler(svc *service.RewardService) *RewardHandler {
+	return &RewardHandler{svc: svc}
 }
 
-func (h *RewardHandler) GetRewards(w http.ResponseWriter, r *http.Request) {
-	// mock
-	json.NewEncoder(w).Encode(payload.RewardsListResponse{UserID: "1", Points: 100})
+func (h *RewardHandler) GetRewards(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{"message": "Not implemented"})
 }
 
-func (h *RewardHandler) ClaimReward(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
+func (h *RewardHandler) ClaimReward(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{"message": "Not implemented"})
 }

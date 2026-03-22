@@ -1,15 +1,14 @@
 package route
 
 import (
-	"kaede-prices/api/handler"
-	"kaede-prices/repo"
-	"net/http"
+	"github.com/gin-gonic/gin"
+	"github.com/koyo/kaede-prices/api/handler"
 )
 
-func RegisterRewardRoutes(mux *http.ServeMux) {
-	r := repo.NewRewardRepository()
-	h := handler.NewRewardHandler(r)
-	
-	mux.HandleFunc("GET /api/v1/rewards", h.GetRewards)
-	mux.HandleFunc("POST /api/v1/rewards/claim", h.ClaimReward)
+func RegisterRewardRoutes(r *gin.RouterGroup, h *handler.RewardHandler) {
+	rewardGroup := r.Group("/api/v1/rewards")
+	{
+		rewardGroup.GET("/", h.GetRewards)
+		rewardGroup.POST("/claim", h.ClaimReward)
+	}
 }
