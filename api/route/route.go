@@ -9,4 +9,7 @@ func RegisterRoutes(router *gin.RouterGroup) {
 	// Register watchlist routes
 	watchlistHandler := handler.NewWatchlistHandler()
 	RegisterWatchlistRoutes(router, watchlistHandler)
+
+	// Register reward routes
+	RegisterRewardRoutes(router)
 }
