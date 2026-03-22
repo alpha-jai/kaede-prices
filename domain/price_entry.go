@@ -11,5 +11,6 @@ type PriceEntry struct {
 	Timestamp       int64   `json:"timestamp" db:"timestamp" dbfield:"timestamp"`
 	CreatedAt       int64   `json:"created_at" db:"created_at" dbfield:"created_at"`
 	UpdatedAt       int64   `json:"updated_at" db:"updated_at" dbfield:"updated_at"`
+	Source          string  `json:"source" db:"source" dbfield:"source"`
 	DeletedAt       *int64  `json:"deleted_at" db:"deleted_at" dbfield:"deleted_at"`
 }
