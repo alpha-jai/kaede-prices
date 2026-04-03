@@ -2,7 +2,6 @@ package route
 
 import (
 	"github.com/koyo/kaede-prices/api/handler"
-	"github.com/koyo/kaede-prices/domain"
 	"github.com/gin-gonic/gin"
 )
 

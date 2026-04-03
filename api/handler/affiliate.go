@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"kaede-prices/service"
+	"github.com/koyo/kaede-prices/service"
 )
 
 type AffiliateHandler struct {
